@@ -4,11 +4,11 @@ var mysql      = require('mysql');
 //connection
 var connection = mysql.createConnection({
   database : 'Project',
-  host     : 'instance-1',
+  host     : 'localhost',
   user     : 'root',
   password : 'mysqlpassword',
   port : '3306',
-  host : 'instance-1'
+  host : 'localhost'
 });
 connection.connect(
     function(err) {
