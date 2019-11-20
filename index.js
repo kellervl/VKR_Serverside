@@ -38,7 +38,7 @@ app.use(passport.session());
 
 //PORT 8000
 app.listen(8000, function () {
-  console.log('Example app listening on port project-control.herokuapp.com!');
+  console.log('Example app listening on port http://localhost:3000!');
 });
 
 //CORS middleware
