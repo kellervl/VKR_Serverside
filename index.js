@@ -38,12 +38,12 @@ app.use(passport.session());
 
 //PORT 8000
 app.listen(8000, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Example app listening on port project-control.herokuapp.com!');
 });
 
 //CORS middleware
 app.use(function(req, res, next) {
-  var allowedOrigins = ['https://project-control.herokuapp.com/']
+  var allowedOrigins = ['project-control.herokuapp.com']
   res.header('Access-Control-Allow-Origin', allowedOrigins);
   res.header( 'Access-Control-Allow-Headers', 'withCredentials, Access-Control-Allow-Headers, Origin, X-Requested-With, X-AUTHENTICATION, X-IP, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Request-Headers');
   res.header( 'Access-Control-Allow-Methods', 'GET, OPTIONS, HEAD, POST, PUT, DELETE');
