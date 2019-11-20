@@ -43,7 +43,7 @@ app.listen(8000, function () {
 
 //CORS middleware
 app.use(function(req, res, next) {
-  var allowedOrigins = ['http://35.228.34.97:3000/']
+  var allowedOrigins = ['http://localhost:3000
   res.header('Access-Control-Allow-Origin', allowedOrigins);
   res.header( 'Access-Control-Allow-Headers', 'withCredentials, Access-Control-Allow-Headers, Origin, X-Requested-With, X-AUTHENTICATION, X-IP, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Request-Headers');
   res.header( 'Access-Control-Allow-Methods', 'GET, OPTIONS, HEAD, POST, PUT, DELETE');
