@@ -71,7 +71,7 @@ app.get("/api/studentprofile/:id",privateinfo(),
 permit("student"),
   function(req,res){
   temp=req.user.idUser
-  db.query('SELECT User.idUser, user.name, user.middle_name, user.last_name, user.department, user.type, student.user_idUser, student.idStudent, student.faculty, student.year_of_study FROM user INNER JOIN student on idUser=User_idUser WHERE student.User_idUser= ? ',temp, function(err, rows, fields) {
+  db.query('SELECT user.idUser, user.name, user.middle_name, user.last_name, user.department, user.type, student.user_idUser, student.idStudent, student.faculty, student.year_of_study FROM user INNER JOIN student on idUser=User_idUser WHERE student.User_idUser= ? ',temp, function(err, rows, fields) {
     if (err) throw err
     res.send(rows)
   });
