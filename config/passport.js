@@ -27,17 +27,17 @@ module.exports=function(passport,dbb)
  
          var encPassword =password;
          var dbPassword  = rows[0].password;
-         /*if(!(dbPassword == encPassword)){
+         if(!(dbPassword == encPassword)){
  
              return done(null, false, req.flash('message','Invalid username or password.'));
  
-          }*/
-          bcrypt.compare( encPassword,  dbPassword, function(err, res) {
+          }
+          /*bcrypt.compare( encPassword,  dbPassword, function(err, res) {
             if(res===true){
             console.log("OK")}
             else 
             {return done(null, false, req.flash('message','Invalid username or password.'));}
-        });
+        });*/ //ПРИКРУТИТЬ!!!
  
          return done(null, rows[0]);
  
