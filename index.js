@@ -578,7 +578,7 @@ for(j=0;j<st.length;j++){
   b.push(kl)
   st[j]['idStages_of_project']=kl
   st[j]['Projects_idProjects']=tempp
-  db.query('INSERT INTO stages_of_project  SET ?',
+  db.query('INSERT INTO Stages_of_project  SET ?',
 st[j], 
 function(err, rows, fields) {
 if (err) throw err
