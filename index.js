@@ -124,7 +124,7 @@ function(req,res){
   function(err, rows, fields) {
     var temporary=JSON.parse(JSON.stringify(rows[0]))['idStudent']
   //db.query('SELECT * FROM student  INNER JOIN student_application ON idStudent = student_idStudent WHERE student.User_idUser = ?',temp,
-  db.query('select * from Projects inner join roles_of_project on idProjects=roles_of_project.Projects_idProjects inner join student_application on roles_of_project.idRoles_of_project=student_application.roles_of_project_idRoles_of_project where student_application.Student_idStudent = ?',
+  db.query('select * from projects inner join roles_of_project on idProjects=roles_of_project.Projects_idProjects inner join student_application on roles_of_project.idRoles_of_project=student_application.roles_of_project_idRoles_of_project where student_application.Student_idStudent = ?',
   temporary,function(err, rows, fields) {
     if (err) throw err
     res.send(rows)
