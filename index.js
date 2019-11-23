@@ -565,7 +565,7 @@ for(n=0;n<stt.length;n++){
   temporary['status_of_role']='свободно'
   temporary['Projects_idProjects']=tempp
   temporary['Student_idStudent']=null
-  db.query('INSERT INTO Roles_of_project  SET ?',
+  db.query('INSERT INTO roles_of_project  SET ?',
 temporary, 
 function(err, rows, fields) {
 if (err) throw err
