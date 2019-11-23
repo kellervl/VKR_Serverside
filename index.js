@@ -140,7 +140,7 @@ function(req,res){
   function(err, rows, fields) {
     var temporary=JSON.parse(JSON.stringify(rows[0]))['idStudent']
   //db.query('SELECT * FROM student  INNER JOIN student_application ON idStudent = student_idStudent WHERE student.User_idUser = ?',temp,
-  db.query('select projects.idProjects,projects.project_name,roles_of_project.idRoles_of_project,roles_of_project.role,student_application.idStudent_application,student_application.student_contact_inf,DATE_FORMAT(date,\'%Y-%m-%d\') as date,student_application.status_of_app,student_application.priority,student_application.comment,student_application.student_idStudent from Projects inner join roles_of_project on idProjects=roles_of_project.Projects_idProjects inner join student_application on roles_of_project.idRoles_of_project=student_application.roles_of_project_idRoles_of_project where (student_application.Student_idStudent = ? and student_application.idStudent_application=?)',
+  db.query('select projects.idProjects,projects.project_name,roles_of_project.idRoles_of_project,roles_of_project.role,student_application.idStudent_application,student_application.student_contact_inf,DATE_FORMAT(date,\'%Y-%m-%d\') as date,student_application.status_of_app,student_application.priority,student_application.comment,student_application.student_idStudent from projects inner join roles_of_project on idProjects=roles_of_project.Projects_idProjects inner join student_application on roles_of_project.idRoles_of_project=student_application.roles_of_project_idRoles_of_project where (student_application.Student_idStudent = ? and student_application.idStudent_application=?)',
   [temporary,req.params.index],function(err, rows, fields) {
     if (err) throw err
     res.send(rows)
