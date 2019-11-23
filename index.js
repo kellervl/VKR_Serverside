@@ -419,7 +419,7 @@ function(req,res){
   histor['status']='согласован акруком'
   histor['Projects_idProjects']=req.params.index
   histor['User_idUser']=req.params.id
- db.query('UPDATE Projects SET status_of_project=\'согласован акруком\' WHERE idProjects=?',
+ db.query('UPDATE projects SET status_of_project=\'согласован акруком\' WHERE idProjects=?',
  temp,function(err, rows, fields){
   db.query('INSERT INTO history_of_project  SET ?',
   histor, function(err, rows, fields){
@@ -444,7 +444,7 @@ function(req,res){
   historr['status']='отказано акруком'
   historr['Projects_idProjects']=req.params.index
   historr['User_idUser']=req.params.id
- db.query('UPDATE Projects SET status_of_project=\'отказано акруком\' WHERE idProjects=?',
+ db.query('UPDATE projects SET status_of_project=\'отказано акруком\' WHERE idProjects=?',
  temp,function(err, rows, fields){
   db.query('INSERT INTO history_of_project  SET ?',
   historr, function(err, rows, fields){
@@ -457,7 +457,6 @@ function(req,res){
 //Одобрение администратором (после академ рука)
 app.get("/api/professorprofile/:id/adminapproval", 
   function(req,res){
-    console.log("RABOTAET /api/professorprofile/:id/adminapproval")
     db.query(' SELECT user.name, user.middle_name,user.type,idProfessor,idProjects,project_name,status_of_project,DATE_FORMAT(beginning_date,\'%Y-%m-%d\') as begdate,DATE_FORMAT(ending_date,\'%Y-%m-%d\') as enddate FROM user INNER JOIN professor ON user.idUser=professor.User_idUser INNER JOIN projects ON professor.idProfessor=projects.Professor_idProfessor WHERE (status_of_project="согласован акруком");', function(err, rows, fields) {
       if (err) throw err
       res.send(rows)
@@ -480,7 +479,7 @@ function(req,res){
   historyy['status']='согласован'
   historyy['Projects_idProjects']=req.params.index
   historyy['User_idUser']=req.params.id
- db.query('UPDATE Projects SET status_of_project=\'согласован\' WHERE idProjects=?',
+ db.query('UPDATE projects SET status_of_project=\'согласован\' WHERE idProjects=?',
  temp,function(err, rows, fields){
   db.query('INSERT INTO history_of_project  SET ?',
   historyy, function(err, rows, fields){
@@ -505,7 +504,7 @@ function(req,res){
   hist['status']='отказано администратором'
   hist['Projects_idProjects']=req.params.index
   hist['User_idUser']=req.params.id
- db.query('UPDATE Projects SET status_of_project=\'отказано администратором\' WHERE idProjects=?',
+ db.query('UPDATE projects SET status_of_project=\'отказано администратором\' WHERE idProjects=?',
  temp,function(err, rows, fields){
   db.query('INSERT INTO history_of_project  SET ?',
   hist, function(err, rows, fields){
