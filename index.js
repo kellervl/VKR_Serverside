@@ -457,6 +457,7 @@ function(req,res){
 //Одобрение администратором (после академ рука)
 app.get("/api/professorprofile/:id/adminapproval", 
   function(req,res){
+    console.log("RABOTAET /api/professorprofile/:id/adminapproval")
     db.query(' SELECT user.name, user.middle_name,user.type,idProfessor,idProjects,project_name,status_of_project,DATE_FORMAT(beginning_date,\'%Y-%m-%d\') as begdate,DATE_FORMAT(ending_date,\'%Y-%m-%d\') as enddate FROM user INNER JOIN professor ON user.idUser=professor.User_idUser INNER JOIN projects ON professor.idProfessor=projects.Professor_idProfessor WHERE (status_of_project="согласован акруком");', function(err, rows, fields) {
       if (err) throw err
       res.send(rows)
